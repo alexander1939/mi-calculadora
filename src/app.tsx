@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './assets/styless.css';
 
 function App() {
   const [num1, setNum1] = useState<string>('');
@@ -18,7 +19,7 @@ function App() {
   };
 
   return (
-    <div style={{ textAlign: 'center', padding: '2rem' }}>
+    <div className="calculadora">
       <h1>Calculadora</h1>
       <input
         type="number"
@@ -26,17 +27,19 @@ function App() {
         onChange={(e) => setNum1(e.target.value)}
         placeholder="Número 1"
       />
-      <br />
       <input
         type="number"
         value={num2}
         onChange={(e) => setNum2(e.target.value)}
         placeholder="Número 2"
       />
-      <br />
-      <button onClick={sumar}>Sumar</button>
-      <button onClick={restar}>Restar</button>
-      <h2>Resultado: {resultado !== null ? resultado : '---'}</h2>
+      <div className="botones">
+        <button onClick={sumar}>Sumar</button>
+        <button onClick={restar}>Restar</button>
+      </div>
+      <div className="resultado">
+        <strong>Resultado:</strong> {resultado !== null ? resultado : '---'}
+      </div>
     </div>
   );
 }
